@@ -18,9 +18,11 @@ function login($username, $password){
         $admin_user = mysqli_fetch_assoc($result);
         $active_user = json_encode($admin_user['fname']);
         session_start();
-        $_SESSION['user']['active_user'] = $active_user;
-        echo "active";
-        // header("location: Home.php");
+        if($_SESSION['user']['active_user'] = $active_user){
+            header("location: dashboard.php");
+        }
+        
+        // 
         // return json_encode([
         //     "message"=>"welcome super admin"
         // ]);
